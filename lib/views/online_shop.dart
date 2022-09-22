@@ -37,7 +37,6 @@ class _ShopPage1State extends State<ShopPage1> {
         ),
       ),
       drawer: Drawer(
-
         backgroundColor: Colors.lightBlueAccent,
         child: ListView(
           padding: EdgeInsets.all(20),
@@ -74,7 +73,7 @@ class _ShopPage1State extends State<ShopPage1> {
             children: [
               Expanded(
                   child: Text(
-                'Online Shop',
+                'OnlinE   ShoP',
                  style: GoogleFonts.areYouSerious(
                    textStyle: const TextStyle(
                    color: Colors.deepPurple,
@@ -213,12 +212,11 @@ class _ShopPage1State extends State<ShopPage1> {
           children: [
             Center(
               child: Image.network(product.imageUrl.toString(),
-                height: 300,
+                height: 333,
               ),
             ),
        Text(product.description.toString()),
             IconChange(),
-
             RatingBar.builder(
               initialRating: 0,
               minRating: 0.5,
