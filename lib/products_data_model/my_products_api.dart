@@ -13,9 +13,7 @@ class MyProductsApi {
     }
     return _singleton!;
   }
-
   MyProductsApi._internal() {
-    // Init subclasses
     products = ProductsApi(appDioClient);
   }
 }

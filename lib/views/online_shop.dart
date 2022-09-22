@@ -1,8 +1,10 @@
-// import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:online_shop/products_data_model/my_products_api.dart';
 import 'package:online_shop/products_data_model/product_model.dart';
-
+import 'package:online_shop/views/online_shop_Icon.dart';
 
 class ShopPage1 extends StatefulWidget {
   const ShopPage1({Key? key}) : super(key: key);
@@ -12,8 +14,6 @@ class ShopPage1 extends StatefulWidget {
 }
 class _ShopPage1State extends State<ShopPage1> {
   bool changeIcon = true;
-  bool changeMyIcon = true;
-
   List<ProductModel>? products = [];
   @override
   void initState() {
@@ -28,9 +28,9 @@ class _ShopPage1State extends State<ShopPage1> {
     return Scaffold(
       appBar: AppBar(
    backgroundColor: Colors.indigoAccent,
-        title: Text('BIG  STORE',
+        title: const Text('BIG  STORE',
           style: TextStyle(
-          color: Colors.indigo[800],
+          color: Colors.white,
           fontSize: 25,
           fontWeight: FontWeight.bold,
         ),
@@ -75,11 +75,14 @@ class _ShopPage1State extends State<ShopPage1> {
               Expanded(
                   child: Text(
                 'Online Shop',
-                style: TextStyle(
-                  color: Colors.deepPurple,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold
-                ),
+                 style: GoogleFonts.areYouSerious(
+                   textStyle: const TextStyle(
+                   color: Colors.deepPurple,
+                   fontSize: 40,
+                   fontStyle: FontStyle.italic,
+                   fontWeight: FontWeight.bold,
+                 ),
+                 ),
               ),
               ),
               IconButton(
@@ -99,7 +102,7 @@ class _ShopPage1State extends State<ShopPage1> {
     Expanded(
      child: changeIcon ? GridView.builder(
        padding: EdgeInsets.all(15),
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
               childAspectRatio: 4/6,
               crossAxisSpacing: 20,
@@ -117,7 +120,7 @@ class _ShopPage1State extends State<ShopPage1> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.indigo,
                       blurRadius: 13,
@@ -127,14 +130,13 @@ class _ShopPage1State extends State<ShopPage1> {
               ),
               child: Expanded(
                 child: Column(
-
                   children: [
                     SizedBox(
                       height : 145,
                         child: Image.network(products![index].imageUrl.toString(),)),
                     Text(products![index].productName.toString()),
                     Text(products![index].price.toString()),
-                        Text(products![index].materials.toString()),
+                    Text(products![index].materials!.first),
                   ],
                 ),
               ),
@@ -142,6 +144,7 @@ class _ShopPage1State extends State<ShopPage1> {
               ),
             );
            }
+
            )       :       ListView.builder(
 
      padding: EdgeInsets.all(15),
@@ -159,7 +162,7 @@ class _ShopPage1State extends State<ShopPage1> {
                decoration: BoxDecoration(
                  color: Colors.white,
                  borderRadius: BorderRadius.circular(15),
-                 boxShadow: [
+                 boxShadow: const [
                    BoxShadow(
                      color: Colors.indigo,
                      blurRadius: 13,
@@ -176,7 +179,7 @@ class _ShopPage1State extends State<ShopPage1> {
                          child: Image.network(products![index].imageUrl.toString(),)),
                      Text(products![index].productName.toString()),
                      Text(products![index].price.toString()),
-                     Text(products![index].materials.toString()),
+                     Text(products![index].materials!.first),
                    ],
                  ),
                ),
@@ -190,11 +193,23 @@ class _ShopPage1State extends State<ShopPage1> {
       ),
     );
   }
-  Widget showProduct (ProductModel product){
+   Widget showProduct (ProductModel product)  {
     return  Scaffold(
       body: Container(
-        padding: EdgeInsets.all(15),
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(
+        //       begin: Alignment.bottomCenter,
+        //       end: Alignment.topCenter,
+        //       colors: [
+        //         Colors.orange,
+        //         Colors.blue,
+        //         Colors.red,
+        //       ],
+        //     )
+        // ),
+        padding: EdgeInsets.all(25),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Center(
               child: Image.network(product.imageUrl.toString(),
@@ -202,48 +217,54 @@ class _ShopPage1State extends State<ShopPage1> {
               ),
             ),
        Text(product.description.toString()),
-            IconButton(
-              onPressed: (){
-                setState(() {
-                  changeMyIcon = !changeMyIcon;
-                });
+            IconChange(),
+
+            RatingBar.builder(
+              initialRating: 0,
+              minRating: 0.5,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemPadding: const EdgeInsets.symmetric(horizontal: 5),
+              itemBuilder: (context, builder) => Icon(
+                Icons.star,
+                color: Colors.orange,
+              ),
+              onRatingUpdate: (rating) {
               },
-              icon: changeMyIcon ?  Icon(Icons.favorite_border,
-                color: Colors.deepPurpleAccent,)
-                  : Icon(Icons.favorite),
-              color: Colors.deepPurpleAccent,
+              itemSize: 30,
             ),
             const Spacer(),
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceAround,
              children: [
-               Text(r'$  ' '${product.price.toString()}',
-               style: TextStyle(
+               Text(r'$ ' '${product.price.toString()}',
+               style: const TextStyle(
                  fontSize: 25,
                  fontWeight: FontWeight.bold,
                  color: Colors.brown,
                ),
                ),
               ElevatedButton(onPressed: () {
-                // final player = AudioCache();
-                // player.play('assets/audio/note.wav');
+                final player = AudioPlayer();
+                player.play('assets/audio/note.wav');
               },
-                  child: Text('Remove Card',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.cyanAccent,
-                ),
-                  ),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.indigo),
                 ),
+                  child: const Text('REMOVE  CART',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.cyanAccent,
+                ),
+                  ),
               ),
              ],
-           )
+           ),
           ],
         ),
-      )
+      ),
     );
   }
 }
