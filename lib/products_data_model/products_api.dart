@@ -12,7 +12,6 @@ class ProductsApi {
     final result = await appDioClient.get(
       'https://my-json-server.typicode.com/narekpog/my-json/products',
     );
-    print(result.data);
     if (result.data is List) {
 
       products = result.data.first

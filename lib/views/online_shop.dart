@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:online_shop/products_data_model/my_products_api.dart';
 import 'package:online_shop/products_data_model/product_model.dart';
 import 'package:online_shop/views/online_shop_Icon.dart';
+import 'package:online_shop/views/shop_real_time.dart';
 
 class ShopPage1 extends StatefulWidget {
   const ShopPage1({Key? key}) : super(key: key);
@@ -68,6 +69,7 @@ class _ShopPage1State extends State<ShopPage1> {
       ),
       body: Column(
         children: [
+          StreamBuilderRealTimeClock(),
           Padding(padding: EdgeInsets.all(15),
           child: Row(
             children: [
@@ -75,12 +77,9 @@ class _ShopPage1State extends State<ShopPage1> {
                   child: Text(
                 'OnlinE   ShoP',
                  style: GoogleFonts.areYouSerious(
-                   textStyle: const TextStyle(
                    color: Colors.deepPurple,
                    fontSize: 40,
-                   fontStyle: FontStyle.italic,
                    fontWeight: FontWeight.bold,
-                 ),
                  ),
               ),
               ),
@@ -103,7 +102,7 @@ class _ShopPage1State extends State<ShopPage1> {
        padding: EdgeInsets.all(15),
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
-              childAspectRatio: 4/6,
+              childAspectRatio: 2/3,
               crossAxisSpacing: 20,
               mainAxisSpacing: 30),
           itemCount: products!.length,
@@ -132,7 +131,8 @@ class _ShopPage1State extends State<ShopPage1> {
                   children: [
                     SizedBox(
                       height : 145,
-                        child: Image.network(products![index].imageUrl.toString(),)),
+                        child: Image.network(
+                          products![index].imageUrl.toString(),)),
                     Text(products![index].productName.toString()),
                     Text(products![index].price.toString()),
                     Text(products![index].materials!.first),
@@ -150,7 +150,7 @@ class _ShopPage1State extends State<ShopPage1> {
          itemCount: products!.length,
        itemBuilder: ( context, index){
          return Expanded(
-           child :GestureDetector(
+           child : GestureDetector(
              onTap: () { Navigator.push(context, MaterialPageRoute(
                  builder: (context) => showProduct(products![index])));
             },
@@ -223,7 +223,7 @@ class _ShopPage1State extends State<ShopPage1> {
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemCount: 5,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 5),
+              itemPadding: const EdgeInsets.symmetric(horizontal: 3),
               itemBuilder: (context, builder) => Icon(
                 Icons.star,
                 color: Colors.orange,
@@ -253,7 +253,7 @@ class _ShopPage1State extends State<ShopPage1> {
                   child: const Text('REMOVE  CART',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                  fontSize: 12,
                   color: Colors.cyanAccent,
                 ),
                   ),
