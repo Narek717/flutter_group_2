@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-       home:  ShopPage1(),
+       home:  const ShopPage1(),
       // home: Whatsapp1(),
       //home: SettUI(),
        //home: StreamBuilderRealTimeClock(),
