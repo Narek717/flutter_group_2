@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/views/online_shop.dart';
-import 'package:online_shop/views/shop_real_time.dart';
+import 'package:online_shop/online_shop/online_shop_big/online_shop.dart';
+import 'package:online_shop/online_shop/online_shop_big/online_shop_Icon.dart';
+import 'package:online_shop/online_shop/online_shop_big/shop_real_time.dart';
+import 'package:online_shop/simple_ui/settings_ui_N.dart';
+import 'package:online_shop/whatsApp/whatsapp1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,15 +12,18 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
 
+       home:  ShopPage1(),
+      // home: Whatsapp1(),
+      //home: SettUI(),
        //home: StreamBuilderRealTimeClock(),
-      home:  ShopPage1(),
+
     );
   }
 }
@@ -31,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final int _counter = 0;
 
   void _incrementCounter() {
     setState(() {

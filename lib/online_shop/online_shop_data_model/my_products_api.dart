@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:online_shop/products_data_model/products_api.dart';
+import 'package:online_shop/online_shop/online_shop_data_model/products_api.dart';
 
 class MyProductsApi {
   static MyProductsApi? _singleton;
@@ -8,9 +8,7 @@ class MyProductsApi {
   Dio appDioClient = Dio();
 
   factory MyProductsApi() {
-    if (_singleton == null) {
-      _singleton = MyProductsApi._internal();
-    }
+    _singleton ??= MyProductsApi._internal();
     return _singleton!;
   }
   MyProductsApi._internal() {
