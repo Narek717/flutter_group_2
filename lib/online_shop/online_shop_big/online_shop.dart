@@ -39,28 +39,35 @@ class _ShopPage1State extends State<ShopPage1> {
       ),
 
       drawer: Drawer(
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.black38,
         child: ListView(
           padding: EdgeInsets.all(20),
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children:[
-              IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart,
-            color: Colors.deepPurple,
+              IconButton(onPressed: (){},
+                  icon: Icon(Icons.shopping_cart,
+                    color: Colors.blueAccent,
             ),
-              iconSize: 30,
+              iconSize: 30
             ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.search,
-          color: Colors.deepPurple),
-            iconSize: 30,
-          ),
-              IconButton(onPressed: (){}, icon: Icon(Icons.shop,
-                  color: Colors.deepPurple),
-                iconSize: 30,
+              IconButton(onPressed: (){},
+                  icon: Icon(Icons.shop,
+                  color: Colors.blueAccent
+                  ),
+                iconSize: 30
               ),
-              IconButton(onPressed: (){}, icon: Icon(Icons.settings,
-                  color: Colors.deepPurple),
+              IconButton(onPressed: (){},
+                  icon: Icon(Icons.search,
+                  color: Colors.blueAccent
+                  ),
+                iconSize: 30
+              ),
+              const Spacer(),
+              IconButton(onPressed: (){},
+                icon: Icon(Icons.settings,
+                  color: Colors.blueAccent
+                ),
                 iconSize: 30,
               ),
         ],
@@ -72,16 +79,16 @@ class _ShopPage1State extends State<ShopPage1> {
         padding: EdgeInsets.only(top: 10),
         child: Column(
           children: [
-            StreamBuilderRealTimeClock(),
+            const StreamBuilderRealTimeClock(),
             Padding(padding: EdgeInsets.all(15),
             child: Row(
               children: [
                 Expanded(
                     child: Text(
-                  'O n l i n E   S h o P',
-                   style: GoogleFonts.areYouSerious(
+                  'OnlinE  ShoP',
+                   style: GoogleFonts.akayaKanadaka(
                      color: Colors.deepPurple,
-                     fontSize: 40,
+                     fontSize: 35,
                      fontWeight: FontWeight.bold,
                    ),
                 ),
@@ -105,15 +112,18 @@ class _ShopPage1State extends State<ShopPage1> {
          padding: EdgeInsets.all(15),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
-                childAspectRatio: 2/3,
+                childAspectRatio: 3/5,
                 crossAxisSpacing: 20,
-                mainAxisSpacing: 30),
+                mainAxisSpacing: 30
+            ),
             itemCount: products!.length,
             itemBuilder: (BuildContext ctx, index) {
            return Expanded(
                 child :GestureDetector(
                 onTap: () { Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => showProduct(products![index])));
+                    builder: (context) => showProduct(products![index])
+                ),
+                );
                     },
                 child: Container(
                   padding: EdgeInsets.all(15),
@@ -133,19 +143,25 @@ class _ShopPage1State extends State<ShopPage1> {
                   child: Column(
                     children: [
                       SizedBox(
-                        height : 145,
+                        height : 155,
                           child: Image.network(
                             products![index].imageUrl.toString()
                           ),
                       ),
                       Text(products![index].productName.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold)
+                          style: TextStyle(fontWeight: FontWeight.bold,
+                              color: Colors.blue[900],
+                          fontSize: 20),
                       ),
                       Text(products![index].price.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold)
+                          style: TextStyle(fontWeight: FontWeight.bold,
+                              color: Colors.blue[800],
+                          fontSize: 17)
                       ),
                       Text(products![index].materials!.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold)
+                          style: TextStyle(fontWeight: FontWeight.bold,
+                              color: Colors.blue[700],
+                          fontSize: 17)
                       ),
                     ],
                   ),
@@ -155,7 +171,7 @@ class _ShopPage1State extends State<ShopPage1> {
               );
              }
 
-             )       :       ListView.builder(
+             )     :     ListView.builder(
 
      padding: EdgeInsets.all(15),
            itemCount: products!.length,
@@ -184,7 +200,7 @@ class _ShopPage1State extends State<ShopPage1> {
                    ],
                  ),
                  child: Expanded(
-                   child: Column(
+                   child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
                        SizedBox(
@@ -193,15 +209,28 @@ class _ShopPage1State extends State<ShopPage1> {
                              products![index].imageUrl.toString(),
                            ),
                        ),
+                     Column(
+                       children:[
                        Text(products![index].productName.toString(),
-                       style: TextStyle(fontWeight: FontWeight.bold),
+                       style: TextStyle(fontWeight: FontWeight.bold,
+                       color: Colors.blue[900],
+                       fontSize: 25
+                       ),
                        ),
                        Text(products![index].price.toString(),
-                           style: TextStyle(fontWeight: FontWeight.bold)
+                           style: TextStyle(fontWeight: FontWeight.bold,
+                           color: Colors.blue[800],
+                           fontSize: 20
+                           )
                        ),
                        Text(products![index].materials!.toString(),
-                           style: TextStyle(fontWeight: FontWeight.bold)
+                           style: TextStyle(fontWeight: FontWeight.bold,
+                           color: Colors.blue[700],
+                           fontSize: 20
+                           )
                        ),
+                 ],
+               ),
                      ],
                    ),
                  ),
