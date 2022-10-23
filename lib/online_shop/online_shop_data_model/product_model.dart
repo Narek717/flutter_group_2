@@ -13,7 +13,7 @@ class ProductModel {
   });
 
   String? productName;
-  int? price;
+  double? price;
   String? imageUrl;
   bool? isAvailable;
   String? description;

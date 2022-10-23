@@ -9,7 +9,7 @@ class ProductsApi {
     List<ProductModel> products = [];
 
     final result = await appDioClient.get(
-      'https://my-json-server.typicode.com/narekpog/my-json/products',
+      'https://my-json-server.typicode.com/Narek717/for_json/products',
     );
     if (result.data is List) {
       products = result.data.first.map<ProductModel>(

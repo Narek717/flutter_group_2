@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_shop/online_shop/online_shop_big/online_shop.dart';
 import 'package:online_shop/online_shop/online_shop_big/online_shop_Icon.dart';
 import 'package:online_shop/online_shop/online_shop_big/shop_real_time.dart';
+import 'package:online_shop/simple_ui/regisN.dart';
 import 'package:online_shop/simple_ui/settings_ui_N.dart';
 import 'package:online_shop/whatsApp/whatsapp1.dart';
 
@@ -19,10 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-       home:  const ShopPage1(),
-      // home: Whatsapp1(),
-      //home: SettUI(),
-       //home: StreamBuilderRealTimeClock(),
+       //home:  const ShopPage1(),
 
     );
   }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Myapp1());
+  runApp(const ViberN());
 }
 
-class Myapp1 extends StatelessWidget {
-  const Myapp1({Key? key}) : super(key: key);
+class ViberN extends StatelessWidget {
+  const ViberN({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,37 +24,48 @@ class Viber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text('Viber',
+        style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+          color: Colors.black
+        ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+                Icons.photo_camera,
+                color: Colors.deepPurple
+            ),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(
+                Icons.search,
+                color: Colors.deepPurple
+            ),
+            onPressed: () {},
+          )
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 15.0),
+              padding: const EdgeInsets.only(top: 15),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const  [
-                  Text('Viber',
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  Spacer(),
-                  Icon(
-                      Icons.photo_camera,
-                      color: Colors.deepPurple
-                  ),
-                  Icon(
-                      Icons.search,
-                      color: Colors.deepPurple
-                  ),
+
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(top: 10),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
@@ -78,7 +89,7 @@ class Viber extends StatelessWidget {
             GestureDetector(
               onLongPress: () {},
               child: Padding(
-                padding: const EdgeInsets.only(top: 1.0),
+                padding: const EdgeInsets.only(top: 3),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ButtonStyle(
@@ -103,7 +114,7 @@ class Viber extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 1.0),
+              padding: const EdgeInsets.only(top: 3),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
@@ -126,7 +137,7 @@ class Viber extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 450.0),
+              padding: const EdgeInsets.only(top: 400),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const  [

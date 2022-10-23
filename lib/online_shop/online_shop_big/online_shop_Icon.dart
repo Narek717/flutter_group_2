@@ -16,9 +16,9 @@ class _IconChangeState extends State<IconChange> {
             myIcon = !myIcon;
           });
         },
-        icon: myIcon ? Icon(Icons.favorite_border,
+        icon: myIcon ? const Icon(Icons.favorite_border,
         color: Colors.deepPurple)
-            : Icon(Icons.favorite,
+            : const Icon(Icons.favorite,
         color: Colors.deepPurple)
     );
   }

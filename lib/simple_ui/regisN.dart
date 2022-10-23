@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop/online_shop/online_shop_big/online_shop.dart';
+import 'package:online_shop/simple_ui/settings_ui_N.dart';
+import 'package:online_shop/simple_ui/viber_N.dart';
+import 'package:online_shop/whatsApp/whatsapp1.dart';
 
 void main() {
   runApp(const Myapp2());
@@ -29,7 +33,8 @@ class _MyScreenState extends State<MyScreen> {
   TextEditingController passwordCtrl = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Container(
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -45,7 +50,7 @@ class _MyScreenState extends State<MyScreen> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(5.0),
+              padding: EdgeInsets.all(5),
               child: Text(
                 'Register to continue',
                 style: TextStyle(
@@ -56,7 +61,7 @@ class _MyScreenState extends State<MyScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -117,7 +122,7 @@ class _MyScreenState extends State<MyScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 20),
               child: Container(
                 alignment: Alignment.bottomLeft,
                 child: const Text(
@@ -135,7 +140,10 @@ class _MyScreenState extends State<MyScreen> {
                fillColor: Colors.redAccent,
                labelText: 'Enter your name',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red, width: 3),
+                  borderSide: const BorderSide(
+                      color: Colors.red,
+                      width: 3
+                  ),
                    borderRadius: BorderRadius.circular(10)
                 ),
               ),
@@ -159,7 +167,10 @@ class _MyScreenState extends State<MyScreen> {
                 fillColor: Colors.redAccent,
                 labelText: 'Enter your mail',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.indigoAccent, width: 3),
+                  borderSide: const BorderSide(
+                      color: Colors.indigoAccent,
+                      width: 3
+                  ),
                     borderRadius: BorderRadius.circular(10)
                 ),
               ),
@@ -195,7 +206,10 @@ class _MyScreenState extends State<MyScreen> {
                 color: Colors.black,
               ),
               enabledBorder:  OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepOrange, width: 3),
+                borderSide: const BorderSide(
+                    color: Colors.deepOrange,
+                    width: 3
+                ),
                 borderRadius: BorderRadius.circular(10)
               ),
               ),
@@ -203,7 +217,15 @@ class _MyScreenState extends State<MyScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const ShopPage1()
+                ),
+                );},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.red[100]),
+                  fixedSize: MaterialStateProperty.all(const Size(250, 50)),
+                  elevation: MaterialStateProperty.all(20),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const  [
@@ -224,27 +246,69 @@ class _MyScreenState extends State<MyScreen> {
                     )
                   ],
                 ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red[100]),
-                  fixedSize: MaterialStateProperty.all(const Size(250, 50)),
-                  elevation: MaterialStateProperty.all(20),
-                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 70.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text('Already have an account? '),
-                  Text('Login',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.deepPurple,
-                    ),
-                  )
-                ],
+              padding: const EdgeInsets.only(top: 20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      IconButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => const Whatsapp1()
+                        ),
+                        );
+                      },
+                          icon: Icon(
+                        Icons.whatsapp,
+                      color: Colors.green[400],
+                      size: 24,
+                      )
+                      ),
+                      IconButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => const Viber()
+                        ),
+                        );
+                      },
+                          icon: Icon(
+                        Icons.wifi_calling_3,
+                        color: Colors.deepPurpleAccent[400],
+                        size: 24,
+                      )
+                      ),
+                      IconButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => const SettUI()
+                      ),
+                      );
+                        },
+                          icon: Icon(
+                            Icons.settings,
+                            color: Colors.orange[700],
+                            size: 24,
+                      )
+                      ),
+                    ],
+                  ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('Already have an account? '),
+                      Text('Login',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepPurple,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ]
               ),
             )
           ],

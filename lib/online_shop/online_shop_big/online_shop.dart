@@ -2,10 +2,11 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:online_shop/online_shop/online_shop_data_model/product_model.dart';
 import 'package:online_shop/online_shop/online_shop_big/online_shop_Icon.dart';
 import 'package:online_shop/online_shop/online_shop_big/shop_real_time.dart';
 import 'package:online_shop/online_shop/online_shop_data_model/my_products_api.dart';
-import 'package:online_shop/online_shop/online_shop_data_model/product_model.dart';
+
 
 class ShopPage1 extends StatefulWidget {
   const ShopPage1({Key? key}) : super(key: key);
@@ -173,7 +174,7 @@ class _ShopPage1State extends State<ShopPage1> {
 
              )     :     ListView.builder(
 
-     padding: EdgeInsets.all(15),
+     padding: const EdgeInsets.all(15),
            itemCount: products!.length,
          itemBuilder: ( context, index){
            return Expanded(
@@ -185,8 +186,8 @@ class _ShopPage1State extends State<ShopPage1> {
                  );
               },
                child: Container(
-                 margin: EdgeInsets.all(20),
-                 padding: EdgeInsets.all(15),
+                 margin: const EdgeInsets.all(20),
+                 padding: const EdgeInsets.all(15),
                  alignment: Alignment.center,
                  decoration: BoxDecoration(
                    color: Colors.white,
@@ -204,7 +205,7 @@ class _ShopPage1State extends State<ShopPage1> {
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
                        SizedBox(
-                       height : 130,
+                       height : 100,
                            child: Image.network(
                              products![index].imageUrl.toString(),
                            ),
@@ -247,6 +248,7 @@ class _ShopPage1State extends State<ShopPage1> {
   }
    Widget showProduct (ProductModel product)  {
     return  Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         // decoration: BoxDecoration(
         //     gradient: LinearGradient(
@@ -269,7 +271,7 @@ class _ShopPage1State extends State<ShopPage1> {
               ),
             ),
        Text(product.description.toString()),
-            IconChange(),
+            const IconChange(),
             RatingBar.builder(
               initialRating: 0,
               minRating: 0.5,
@@ -277,7 +279,7 @@ class _ShopPage1State extends State<ShopPage1> {
               allowHalfRating: true,
               itemCount: 5,
               itemPadding: const EdgeInsets.symmetric(horizontal: 3),
-              itemBuilder: (context, builder) => Icon(
+              itemBuilder: (context, builder) => const Icon(
                 Icons.star,
                 color: Colors.orange,
               ),
