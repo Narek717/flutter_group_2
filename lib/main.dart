@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop/online_shop/online_shop_big/online_shop.dart';
-import 'package:online_shop/online_shop/online_shop_big/online_shop_Icon.dart';
-import 'package:online_shop/online_shop/online_shop_big/shop_real_time.dart';
+import 'package:online_shop/online_shop/online_shop_big/shop_tools/settings.dart';
 import 'package:online_shop/simple_ui/regisN.dart';
 import 'package:online_shop/simple_ui/settings_ui_N.dart';
+import 'package:online_shop/tools/checkbox.dart';
 import 'package:online_shop/whatsApp/whatsapp1.dart';
 
 void main() {
@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
+      //home: Settings(),
        //home:  const ShopPage1(),
-
+       // home: MyCheckBox(),
     );
   }
 }

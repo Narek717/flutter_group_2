@@ -2,9 +2,10 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:online_shop/online_shop/online_shop_big/shop_tools/online_shop_Icon.dart';
+import 'package:online_shop/online_shop/online_shop_big/shop_tools/settings.dart';
+import 'package:online_shop/online_shop/online_shop_big/shop_tools/shop_real_time.dart';
 import 'package:online_shop/online_shop/online_shop_data_model/product_model.dart';
-import 'package:online_shop/online_shop/online_shop_big/online_shop_Icon.dart';
-import 'package:online_shop/online_shop/online_shop_big/shop_real_time.dart';
 import 'package:online_shop/online_shop/online_shop_data_model/my_products_api.dart';
 
 
@@ -42,31 +43,36 @@ class _ShopPage1State extends State<ShopPage1> {
       drawer: Drawer(
         backgroundColor: Colors.black38,
         child: ListView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
         children: [
           Row(
             children:[
               IconButton(onPressed: (){},
-                  icon: Icon(Icons.shopping_cart,
+                  icon: const Icon(Icons.shopping_cart,
                     color: Colors.blueAccent,
             ),
               iconSize: 30
             ),
               IconButton(onPressed: (){},
-                  icon: Icon(Icons.shop,
+                  icon: const Icon(Icons.shop,
                   color: Colors.blueAccent
                   ),
                 iconSize: 30
               ),
               IconButton(onPressed: (){},
-                  icon: Icon(Icons.search,
+                  icon: const Icon(Icons.search,
                   color: Colors.blueAccent
                   ),
                 iconSize: 30
               ),
               const Spacer(),
-              IconButton(onPressed: (){},
-                icon: Icon(Icons.settings,
+              IconButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => const Settings(),
+                ),
+                );
+              },
+                icon: const Icon(Icons.settings,
                   color: Colors.blueAccent
                 ),
                 iconSize: 30,
@@ -77,11 +83,11 @@ class _ShopPage1State extends State<ShopPage1> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 10),
         child: Column(
           children: [
-            const StreamBuilderRealTimeClock(),
-            Padding(padding: EdgeInsets.all(15),
+             const StreamBuilderRealTimeClock(),
+            Padding(padding: const EdgeInsets.all(15),
             child: Row(
               children: [
                 Expanded(
@@ -100,9 +106,9 @@ class _ShopPage1State extends State<ShopPage1> {
                         changeIcon = !changeIcon;
                       });
                     },
-                    icon: changeIcon ?  Icon(Icons.view_week,
+                    icon: changeIcon ?  const Icon(Icons.view_week,
                 color: Colors.deepPurpleAccent,)
-                  : Icon(Icons.view_headline_rounded),
+                  : const Icon(Icons.view_headline_rounded),
                   color: Colors.deepPurpleAccent,
     ),
               ],
@@ -110,7 +116,7 @@ class _ShopPage1State extends State<ShopPage1> {
             ),
     Expanded(
      child: changeIcon ? GridView.builder(
-         padding: EdgeInsets.all(15),
+         padding: const EdgeInsets.all(15),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
                 childAspectRatio: 3/5,
@@ -127,7 +133,7 @@ class _ShopPage1State extends State<ShopPage1> {
                 );
                     },
                 child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -154,7 +160,7 @@ class _ShopPage1State extends State<ShopPage1> {
                               color: Colors.blue[900],
                           fontSize: 20),
                       ),
-                      Text(products![index].price.toString(),
+                      Text(r'$'' ''${products![index].price.toString()}',
                           style: TextStyle(fontWeight: FontWeight.bold,
                               color: Colors.blue[800],
                           fontSize: 17)
@@ -218,7 +224,7 @@ class _ShopPage1State extends State<ShopPage1> {
                        fontSize: 25
                        ),
                        ),
-                       Text(products![index].price.toString(),
+                       Text(r'$'' ''${products![index].price.toString()}',
                            style: TextStyle(fontWeight: FontWeight.bold,
                            color: Colors.blue[800],
                            fontSize: 20
@@ -261,7 +267,7 @@ class _ShopPage1State extends State<ShopPage1> {
         //       ],
         //     )
         // ),
-        padding: EdgeInsets.all(25),
+        padding: const EdgeInsets.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [

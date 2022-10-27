@@ -16,7 +16,7 @@ class Myapp2 extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-body: MyScreen(),
+           body: MyScreen(),
         ),
       ),
     );
@@ -41,12 +41,23 @@ class _MyScreenState extends State<MyScreen> {
           children: [
             Container(
               alignment: Alignment.center,
-              child: const Text(
-                'Register',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Icon(Icons.computer,
+                      size: 35,
+                      color: Colors.indigo),
+               Text(
+                  'Register',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                  Icon(Icons.shopping_cart,
+                  size: 35,
+                  color: Colors.indigoAccent),
+                ]
               ),
             ),
             const Padding(

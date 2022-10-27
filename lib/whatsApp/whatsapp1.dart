@@ -23,24 +23,24 @@ class Whatsapp1 extends StatelessWidget {
           ),
           tabs: <Widget>[
             Tab(icon: Icon(Icons.camera_alt),),
-            Tab(text: 'CHATS',),
-            Tab(text: 'STATUS',),
-            Tab(text: 'CALLS',)
+            Tab(text: 'CHATS'),
+            Tab(text: 'STATUS'),
+            Tab(text: 'CALLS')
           ],
         ),
       ),
        body: TabBarView(
          children: <Widget>[
            Container(),
-           ForChats(),
+           const ForChats(),
            Container(),
            Container(),
          ],
        ),
         floatingActionButton: FloatingActionButton(
           onPressed: (){},
-          child: const Icon(Icons.message),
           backgroundColor: Colors.teal,
+          child: const Icon(Icons.message),
         ),
     ),
     );
