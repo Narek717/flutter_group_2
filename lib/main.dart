@@ -3,6 +3,7 @@ import 'package:online_shop/online_shop/online_shop_big/online_shop.dart';
 import 'package:online_shop/online_shop/online_shop_big/shop_tools/settings.dart';
 import 'package:online_shop/simple_ui/regisN.dart';
 import 'package:online_shop/simple_ui/settings_ui_N.dart';
+import 'package:online_shop/simple_ui/viber_N.dart';
 import 'package:online_shop/tools/checkbox.dart';
 import 'package:online_shop/whatsApp/whatsapp1.dart';
 
@@ -20,8 +21,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: Settings(),
-       //home:  const ShopPage1(),
+       home:  const ShopPage1(),
        // home: MyCheckBox(),
+      //home: Viber(),
     );
   }
 }
@@ -69,10 +71,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-// → 1. git init
-// → 2. git add .
-// → 3. git commit -m "description"
-// → 4. git branch -M branchName
-// → 5. git remote add origin repoUrl
-// → 6. git push -u origin branchName

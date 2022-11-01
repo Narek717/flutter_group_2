@@ -8,7 +8,6 @@ import 'package:online_shop/online_shop/online_shop_big/shop_tools/shop_real_tim
 import 'package:online_shop/online_shop/online_shop_data_model/product_model.dart';
 import 'package:online_shop/online_shop/online_shop_data_model/my_products_api.dart';
 
-
 class ShopPage1 extends StatefulWidget {
   const ShopPage1({Key? key}) : super(key: key);
 
@@ -41,7 +40,7 @@ class _ShopPage1State extends State<ShopPage1> {
       ),
 
       drawer: Drawer(
-        backgroundColor: Colors.black38,
+        backgroundColor: const Color.fromARGB(70, 102, 102, 255),
         child: ListView(
           padding: const EdgeInsets.all(20),
         children: [
@@ -49,19 +48,19 @@ class _ShopPage1State extends State<ShopPage1> {
             children:[
               IconButton(onPressed: (){},
                   icon: const Icon(Icons.shopping_cart,
-                    color: Colors.blueAccent,
+                    color: Colors.lightBlueAccent
             ),
               iconSize: 30
             ),
               IconButton(onPressed: (){},
                   icon: const Icon(Icons.shop,
-                  color: Colors.blueAccent
+                  color: Colors.lightBlueAccent
                   ),
                 iconSize: 30
               ),
               IconButton(onPressed: (){},
                   icon: const Icon(Icons.search,
-                  color: Colors.blueAccent
+                  color: Colors.lightBlueAccent
                   ),
                 iconSize: 30
               ),
@@ -73,7 +72,7 @@ class _ShopPage1State extends State<ShopPage1> {
                 );
               },
                 icon: const Icon(Icons.settings,
-                  color: Colors.blueAccent
+                  color: Colors.lightBlueAccent
                 ),
                 iconSize: 30,
               ),
@@ -87,7 +86,8 @@ class _ShopPage1State extends State<ShopPage1> {
         child: Column(
           children: [
              const StreamBuilderRealTimeClock(),
-            Padding(padding: const EdgeInsets.all(15),
+            Padding(
+              padding: const EdgeInsets.all(15),
             child: Row(
               children: [
                 Expanded(
@@ -180,7 +180,7 @@ class _ShopPage1State extends State<ShopPage1> {
 
              )     :     ListView.builder(
 
-     padding: const EdgeInsets.all(15),
+     padding: const EdgeInsets.all(5),
            itemCount: products!.length,
          itemBuilder: ( context, index){
            return Expanded(
@@ -192,8 +192,8 @@ class _ShopPage1State extends State<ShopPage1> {
                  );
               },
                child: Container(
-                 margin: const EdgeInsets.all(20),
-                 padding: const EdgeInsets.all(15),
+                 margin: const EdgeInsets.all(15),
+                 padding: const EdgeInsets.all(20),
                  alignment: Alignment.center,
                  decoration: BoxDecoration(
                    color: Colors.white,
@@ -211,7 +211,7 @@ class _ShopPage1State extends State<ShopPage1> {
                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                      children: [
                        SizedBox(
-                       height : 100,
+                       height : 105,
                            child: Image.network(
                              products![index].imageUrl.toString(),
                            ),
@@ -256,7 +256,7 @@ class _ShopPage1State extends State<ShopPage1> {
     return  Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        // decoration: BoxDecoration(
+        // decoration: const BoxDecoration(
         //     gradient: LinearGradient(
         //       begin: Alignment.bottomCenter,
         //       end: Alignment.topCenter,

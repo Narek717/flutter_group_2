@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:online_shop/online_shop/online_shop_big/online_shop.dart';
 import 'package:online_shop/simple_ui/settings_ui_N.dart';
 import 'package:online_shop/simple_ui/viber_N.dart';
@@ -36,7 +37,7 @@ class _MyScreenState extends State<MyScreen> {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Container(
@@ -239,19 +240,19 @@ class _MyScreenState extends State<MyScreen> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const  [
-                    Text(
+                  children: [
+                    const Text(
                       '',
                     ),
                     Text(
                       'Login in',
-                      style: TextStyle(
+                      style: GoogleFonts.alegreya(
                         color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold
                       ),
                     ),
-                    Icon(
+                    const Icon(
                         Icons.arrow_forward,
                       color: Colors.brown,
                     )
