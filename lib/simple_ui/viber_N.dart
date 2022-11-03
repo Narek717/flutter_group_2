@@ -9,7 +9,7 @@ class Viber extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white70,
+          backgroundColor: const Color.fromARGB(218, 255, 255, 255),
           title: Text('Viber',
          textAlign: TextAlign.start,
          style: GoogleFonts.corben(
