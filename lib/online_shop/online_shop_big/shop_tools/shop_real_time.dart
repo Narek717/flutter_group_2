@@ -22,11 +22,13 @@ class _StreamBuilderRealTimeClockState
       );
       DateTime now = DateTime.now();
       yield "${now.hour} : ${now.minute} : ${now.second}";
+
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    return  StreamBuilder(
+    return StreamBuilder(
       stream: _clock(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -44,7 +46,7 @@ class _StreamBuilderRealTimeClockState
           children: [
             Text(
               snapshot.data as String,
-              style:  GoogleFonts.akayaKanadaka(
+              style: GoogleFonts.akayaKanadaka(
                 fontSize: 25,
                 color: Colors.indigo,
                 fontWeight: FontWeight.w900,

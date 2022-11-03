@@ -1,10 +1,12 @@
-import 'product_model.dart';
 import 'package:dio/dio.dart';
+
+import 'product_model.dart';
+
 class ProductsApi {
   final Dio appDioClient;
 
-  ProductsApi(
-    this.appDioClient);
+  ProductsApi(this.appDioClient);
+
   Future<List<ProductModel>> getProductsData() async {
     List<ProductModel> products = [];
 
@@ -12,7 +14,8 @@ class ProductsApi {
       'https://my-json-server.typicode.com/Narek717/for_json/products',
     );
     if (result.data is List) {
-      products = result.data.first.map<ProductModel>(
+      products = result.data.first
+          .map<ProductModel>(
             (e) => ProductModel.fromJson(e),
           )
           .toList();

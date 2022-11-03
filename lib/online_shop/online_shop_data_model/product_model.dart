@@ -20,21 +20,20 @@ class ProductModel {
   List<String>? materials;
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    productName: json["product_name"],
-    price: json["price"],
-    imageUrl: json["image_url"],
-    isAvailable: json["is_available"],
-    description: json["description"],
-    materials: List<String>.from(json["materials"].map((x) => x)),
-  );
+        productName: json["product_name"],
+        price: json["price"],
+        imageUrl: json["image_url"],
+        isAvailable: json["is_available"],
+        description: json["description"],
+        materials: List<String>.from(json["materials"].map((x) => x)),
+      );
 
   Map<String, dynamic> toJson() => {
-    "product_name": productName,
-    "price": price,
-    "image_url": imageUrl,
-    "is_available": isAvailable,
-    "description": description,
-    "materials": List<dynamic>.from(materials!.map((x) => x)),
-  };
+        "product_name": productName,
+        "price": price,
+        "image_url": imageUrl,
+        "is_available": isAvailable,
+        "description": description,
+        "materials": List<dynamic>.from(materials!.map((x) => x)),
+      };
 }
-

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyCheckBox());
 }
+
 class MyCheckBox extends StatelessWidget {
   const MyCheckBox({Key? key}) : super(key: key);
 
@@ -10,13 +11,14 @@ class MyCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  Scaffold(
+      home: Scaffold(
           body: Center(
-            child: CheckboxW(),
-          )),
+        child: CheckboxW(),
+      )),
     );
   }
 }
+
 class CheckboxW extends StatefulWidget {
   const CheckboxW({Key? key}) : super(key: key);
 
@@ -31,9 +33,7 @@ class _CheckboxWState extends State<CheckboxW> {
 
   @override
   Widget build(BuildContext context) {
-
     return Checkbox(
-
       activeColor: Colors.black,
       checkColor: Colors.grey,
       focusColor: Colors.yellow,

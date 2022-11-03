@@ -11,6 +11,7 @@ class MyProductsApi {
     _singleton ??= MyProductsApi._internal();
     return _singleton!;
   }
+
   MyProductsApi._internal() {
     products = ProductsApi(appDioClient);
   }

@@ -1,5 +1,4 @@
 class Info {
-
   String image;
   String name;
   String message;

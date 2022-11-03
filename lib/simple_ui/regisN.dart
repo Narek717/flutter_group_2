@@ -8,6 +8,7 @@ import 'package:online_shop/whatsApp/whatsapp1.dart';
 void main() {
   runApp(const Myapp2());
 }
+
 class Myapp2 extends StatelessWidget {
   const Myapp2({Key? key}) : super(key: key);
 
@@ -17,21 +18,25 @@ class Myapp2 extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-           body: MyScreen(),
+          body: MyScreen(),
         ),
       ),
     );
   }
 }
+
 class MyScreen extends StatefulWidget {
   const MyScreen({Key? key}) : super(key: key);
+
   @override
   State<MyScreen> createState() => _MyScreenState();
 }
+
 class _MyScreenState extends State<MyScreen> {
   bool showPassword = false;
   TextEditingController usernameCtrl = TextEditingController();
   TextEditingController passwordCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,23 +48,19 @@ class _MyScreenState extends State<MyScreen> {
             Container(
               alignment: Alignment.center,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Icon(Icons.computer,
-                      size: 35,
-                      color: Colors.indigo),
-               Text(
-                  'Register',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                  Icon(Icons.shopping_cart,
-                  size: 35,
-                  color: Colors.indigoAccent),
-                ]
-              ),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Icon(Icons.computer, size: 35, color: Colors.indigo),
+                    Text(
+                      'Register',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(Icons.shopping_cart,
+                        size: 35, color: Colors.indigoAccent),
+                  ]),
             ),
             const Padding(
               padding: EdgeInsets.all(5),
@@ -84,7 +85,8 @@ class _MyScreenState extends State<MyScreen> {
                       width: 80,
                       color: Colors.white,
                       child: const Center(
-                        child: Text('f',
+                        child: Text(
+                          'f',
                           style: TextStyle(
                               color: Colors.blueAccent,
                               fontSize: 45,
@@ -145,23 +147,19 @@ class _MyScreenState extends State<MyScreen> {
                 ),
               ),
             ),
-              TextField(
+            TextField(
               showCursor: true,
               decoration: InputDecoration(
                 filled: false,
-               fillColor: Colors.redAccent,
-               labelText: 'Enter your name',
+                fillColor: Colors.redAccent,
+                labelText: 'Enter your name',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                      color: Colors.red,
-                      width: 3
-                  ),
-                   borderRadius: BorderRadius.circular(10)
-                ),
+                    borderSide: const BorderSide(color: Colors.red, width: 3),
+                    borderRadius: BorderRadius.circular(10)),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 20),
               child: Container(
                 alignment: Alignment.bottomLeft,
                 child: const Text(
@@ -172,23 +170,20 @@ class _MyScreenState extends State<MyScreen> {
                 ),
               ),
             ),
-           TextField(
+            TextField(
               showCursor: true,
               decoration: InputDecoration(
                 filled: false,
                 fillColor: Colors.redAccent,
                 labelText: 'Enter your mail',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                      color: Colors.indigoAccent,
-                      width: 3
-                  ),
-                    borderRadius: BorderRadius.circular(10)
-                ),
+                    borderSide:
+                        const BorderSide(color: Colors.indigoAccent, width: 3),
+                    borderRadius: BorderRadius.circular(10)),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 20),
               child: Container(
                 alignment: Alignment.bottomLeft,
                 child: const Text(
@@ -199,40 +194,40 @@ class _MyScreenState extends State<MyScreen> {
                 ),
               ),
             ),
-             TextField(
+            TextField(
               controller: passwordCtrl,
               obscureText: !showPassword,
               obscuringCharacter: ('*'),
               maxLength: 10,
               decoration: InputDecoration(
-                  filled: false,
-                  fillColor: Colors.redAccent,
-                  labelText: 'Enter your password',
-              suffixIcon: IconButton(
-                onPressed: _onShowPassword,
-                icon: showPassword ?
-                const Icon(Icons.visibility,
+                filled: false,
+                fillColor: Colors.redAccent,
+                labelText: 'Enter your password',
+                suffixIcon: IconButton(
+                  onPressed: _onShowPassword,
+                  icon: showPassword
+                      ? const Icon(
+                          Icons.visibility,
+                          color: Colors.black,
+                        )
+                      : const Icon(Icons.visibility_off),
                   color: Colors.black,
-                )
-                    : const Icon(Icons.visibility_off),
-                color: Colors.black,
-              ),
-              enabledBorder:  OutlineInputBorder(
-                borderSide: const BorderSide(
-                    color: Colors.deepOrange,
-                    width: 3
                 ),
-                borderRadius: BorderRadius.circular(10)
-              ),
+                enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Colors.deepOrange, width: 3),
+                    borderRadius: BorderRadius.circular(10)),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 20),
               child: ElevatedButton(
-                onPressed: () {Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => const ShopPage1()
-                ),
-                );},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ShopPage1()),
+                  );
+                },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.red[100]),
                   fixedSize: MaterialStateProperty.all(const Size(250, 50)),
@@ -247,13 +242,12 @@ class _MyScreenState extends State<MyScreen> {
                     Text(
                       'Login in',
                       style: GoogleFonts.alegreya(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold
-                      ),
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
                     ),
                     const Icon(
-                        Icons.arrow_forward,
+                      Icons.arrow_forward,
                       color: Colors.brown,
                     )
                   ],
@@ -262,55 +256,58 @@ class _MyScreenState extends State<MyScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => const Whatsapp1()
-                        ),
-                        );
-                      },
-                          icon: Icon(
-                        Icons.whatsapp,
-                      color: Colors.green[400],
-                      size: 24,
-                      )
-                      ),
-                      IconButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => const Viber()
-                        ),
-                        );
-                      },
-                          icon: Icon(
-                        Icons.wifi_calling_3,
-                        color: Colors.deepPurpleAccent[400],
-                        size: 24,
-                      )
-                      ),
-                      IconButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => const SettUI()
-                      ),
-                      );
+              child: Column(children: [
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Whatsapp1()),
+                          );
                         },
-                          icon: Icon(
-                            Icons.settings,
-                            color: Colors.orange[700],
-                            size: 24,
-                      )
-                      ),
-                    ],
-                  ),
+                        icon: Icon(
+                          Icons.whatsapp,
+                          color: Colors.green[400],
+                          size: 24,
+                        )),
+                    IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Viber()),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.wifi_calling_3,
+                          color: Colors.deepPurpleAccent[400],
+                          size: 24,
+                        )),
+                    IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SettUI()),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.settings,
+                          color: Colors.orange[700],
+                          size: 24,
+                        )),
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text('Already have an account? '),
-                      Text('Login',
+                      Text(
+                        'Login',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -320,14 +317,14 @@ class _MyScreenState extends State<MyScreen> {
                     ],
                   ),
                 ),
-              ]
-              ),
+              ]),
             )
           ],
         ),
       ),
     );
   }
+
   void _onShowPassword() {
     setState(() {
       showPassword = !showPassword;

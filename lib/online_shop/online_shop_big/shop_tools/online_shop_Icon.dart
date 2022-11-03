@@ -6,8 +6,10 @@ class IconChange extends StatefulWidget {
   @override
   State<IconChange> createState() => _IconChangeState();
 }
+
 class _IconChangeState extends State<IconChange> {
   bool myIcon = true;
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -16,10 +18,8 @@ class _IconChangeState extends State<IconChange> {
             myIcon = !myIcon;
           });
         },
-        icon: myIcon ? const Icon(Icons.favorite_border,
-        color: Colors.deepPurple)
-            : const Icon(Icons.favorite,
-        color: Colors.deepPurple)
-    );
+        icon: myIcon
+            ? const Icon(Icons.favorite_border, color: Colors.deepPurple)
+            : const Icon(Icons.favorite, color: Colors.deepPurple));
   }
 }
