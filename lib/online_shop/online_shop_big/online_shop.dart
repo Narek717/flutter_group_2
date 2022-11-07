@@ -7,6 +7,7 @@ import 'package:online_shop/online_shop/online_shop_big/shop_tools/settings.dart
 import 'package:online_shop/online_shop/online_shop_big/shop_tools/shop_real_time.dart';
 import 'package:online_shop/online_shop/online_shop_data_model/my_products_api.dart';
 import 'package:online_shop/online_shop/online_shop_data_model/product_model.dart';
+import 'package:online_shop/slider_carousel/slider_carousel_card.dart';
 
 class ShopPage1 extends StatefulWidget {
   const ShopPage1({Key? key}) : super(key: key);
@@ -330,12 +331,16 @@ class _ShopPage1State extends State<ShopPage1> {
                   onPressed: () {
                     final player = AudioPlayer();
                     player.play('assets/audio/note.wav');
+                    Navigator.push(context,
+                      MaterialPageRoute(
+                          builder: (context) => const SlideCards()),
+                    );
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.indigo),
                   ),
                   child: const Text(
-                    'REMOVE  CART',
+                    'SELECT CARD',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 12,

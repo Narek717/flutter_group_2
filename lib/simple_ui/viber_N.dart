@@ -14,7 +14,7 @@ class Viber extends StatelessWidget {
             'Viber',
             textAlign: TextAlign.start,
             style: GoogleFonts.corben(
-              fontSize: 20,
+              fontSize: 17,
               fontWeight: FontWeight.w700,
               color: Colors.black,
             ),

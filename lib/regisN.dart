@@ -6,11 +6,11 @@ import 'package:online_shop/simple_ui/viber_N.dart';
 import 'package:online_shop/whatsApp/whatsapp1.dart';
 
 void main() {
-  runApp(const Myapp2());
+  runApp(const GeneralPage());
 }
 
-class Myapp2 extends StatelessWidget {
-  const Myapp2({Key? key}) : super(key: key);
+class GeneralPage extends StatelessWidget {
+  const GeneralPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -322,6 +322,7 @@ class _MyScreenState extends State<MyScreen> {
           ],
         ),
       ),
+
     );
   }
 
